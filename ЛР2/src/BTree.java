@@ -10,11 +10,10 @@ public class BTree {
 
     private final int T;
 
-    // Node Creation
     public class Node {
         int n;
-        int key[] = new int[2 * T - 1];
-        Node child[] = new Node[2 * T];
+        int[] key = new int[2 * T - 1];
+        Node[] child = new Node[2 * T];
         boolean leaf = true;
 
         public int Find(int k) {
@@ -28,22 +27,17 @@ public class BTree {
 
         public List<Integer> traverse() {
 
-            // There are n keys and n+1 children, traverse through n keys
-            // and first n children
             List<Integer> items = new ArrayList<>();
 
             int i;
             for (i = 0; i < this.n; i++) {
 
-                // If this is not leaf, then before printing key[i],
-                // traverse the subtree rooted with child C[i].
                 if (!this.leaf) {
                     items.addAll(child[i].traverse());
                 }
                 items.add(key[i]);
             }
 
-            // Print the subtree rooted with last child
             if (!leaf)
                 items.addAll(child[i].traverse());
 
@@ -60,7 +54,6 @@ public class BTree {
 
     private Node root;
 
-    // split
     private void split(Node x, int pos, Node y) {
         Node z = new Node();
         z.leaf = y.leaf;
@@ -86,7 +79,6 @@ public class BTree {
         x.n = x.n + 1;
     }
 
-    // insert key
     public void insert(final int key) {
         Node r = root;
         if (r.n == 2 * T - 1) {
@@ -102,7 +94,6 @@ public class BTree {
         }
     }
 
-    // insert node
     private void _insert(Node x, int k) {
 
         if (x.leaf) {
@@ -116,7 +107,7 @@ public class BTree {
             int i = 0;
             for (i = x.n - 1; i >= 0 && k < x.key[i]; i--) {
             }
-            ;
+
             i++;
             Node tmp = x.child[i];
             if (tmp.n == 2 * T - 1) {
