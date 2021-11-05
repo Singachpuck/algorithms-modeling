@@ -1,5 +1,3 @@
-// Inserting a key on a B-tree in Java
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -373,24 +371,35 @@ public class BTree {
     public static void main(String[] args) {
         BTree b = new BTree(50);
 
-        b.insert(123);
-        b.insert(54);
-        b.insert(73);
-        b.insert(442);
-        b.insert(4);
-        b.insert(43);
-        b.insert(123);
-        b.insert(2141);
-        b.insert(875);
-        b.insert(1823);
-        b.insert(896);
-        b.insert(97);
-        b.insert(92);
-        b.insert(9346);
-        b.insert(458);
-        b.insert(57);
-        b.insert(456);
-        b.insert(10);
+        try {
+            b.load("db.txt");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+//        b.insert(123);
+//        b.insert(54);
+//        b.insert(73);
+//        b.insert(442);
+//        b.insert(4);
+//        b.insert(43);
+//        b.insert(123);
+//        b.insert(2141);
+//        b.insert(875);
+//        b.insert(1823);
+//        b.insert(896);
+//        b.insert(97);
+//        b.insert(92);
+//        b.insert(9346);
+//        b.insert(458);
+//        b.insert(57);
+//        b.insert(456);
+//        b.insert(10);
+
+        try {
+            b.save();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         System.out.println(b.traverse());
 
