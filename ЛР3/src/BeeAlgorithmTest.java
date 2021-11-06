@@ -26,9 +26,7 @@ class BeeAlgorithmTest {
 
         BeeAlgorithm beeAlgorithm = new BeeAlgorithm(adjucencyMatrix, workerBeesCount, scoutBeesCount);
 
-        System.out.println(Arrays.toString(beeAlgorithm.greedyPaint()));
         System.out.println(Arrays.toString(beeAlgorithm.paint()));
-//        beeAlgorithm.paint();
     }
 
 }
