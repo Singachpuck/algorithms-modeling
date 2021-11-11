@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.function.Supplier;
 import java.util.stream.IntStream;
 
 public class BeeAlgorithm {
