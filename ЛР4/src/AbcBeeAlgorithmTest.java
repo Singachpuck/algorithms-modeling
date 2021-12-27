@@ -38,7 +38,7 @@ class AbcBeeAlgorithmTest {
 //                {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0,},
 //        };
 
-        final int iterations = 10000;
+        final int iterations = 100;
 
         AbcBeeAlgorithm abcBeeAlgorithm = new AbcBeeAlgorithm(workerBeesCount, scoutBeesCount, adjucencyMatrix);
 
@@ -51,7 +51,7 @@ class AbcBeeAlgorithmTest {
 
             if (cn < chromaticNumber) {
                 chromaticNumber = cn;
-//                System.out.println(Arrays.toString(res));
+                System.out.println(Arrays.toString(res));
             }
         }
         System.out.println(System.nanoTime() - before);
